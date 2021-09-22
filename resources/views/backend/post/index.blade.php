@@ -14,7 +14,7 @@
               </div>
               <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
                 <span>
-                  <a href="{{url('/')}}" target="_blank" class="btn btn-outline-light btn-rounded get-started-btn">Visit Fontend ?</a>
+                  <a href=" {{ url('/') }} " target="_blank" class="btn btn-outline-light btn-rounded get-started-btn">Vist Fontend ? </a>
                 </span>
               </div>
             </div>
@@ -22,46 +22,47 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Sub-Category Page</h4>
-            <div class="template-demo">
-              <a href="{{route('add.subcategory')}}"> <button type="button" class="btn btn-primary btn-fw" style="float:right; margin-bottom:15px;">+ Add Sub-Category</button></a>
-            </div>
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Post Page </h4>
+          <div class="template-demo">
+            <a href="{{ route('create.post')  }}"><button type="button" class="btn btn-primary btn-fw" style="float: right;">Add Post</button></a>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th> # </th>
+                  <th> Post Title </th>
+                  <th> Category </th>
+                  <th> District </th>
+                  <th> Image </th>
+                  <th> Post Date </th>
+                  <th> Action </th>
+                </tr>
+              </thead>
+              <tbody>
+                @php($i = 1)
+                @foreach($post as $row)
                   <tr>
-                    <th> # </th>
-                    <th> Category Name</th>
-                    <th> Sub-Category English</th>
-                    <th> Sub-Category Turkish </th>
-                    <th> Action </th>
+                    <td> {{ $i++ }} </td>
+                    <td> {{ Str::limit($row->title_en , 10) }} </td>
+                    <td> {{ $row->category_en }} </td>
+                    <td> {{ $row->district_en }} </td>
+                    <td> <img src="{{ $row->image }}" style="width: 50px; height: 50px;"> </td>
+                    <td>{{ Carbon\Carbon::parse($row->post_date)->diffForHumans() }} </td>
+                    <td>
+                      <a href="{{ route('edit.post',$row->id) }}" class="btn btn-info">Edit</a>
+                      <a href="{{ route('delete.post',$row->id) }}" onclick="return confirm('Are you sure to delete')" class="btn btn-danger">Delete</a>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  <?php $i=0  ?>
-                  @foreach($subcategory as $row) <?php $i++ ?>
-                    <tr>
-                      <td> {{ $i++ }} </td>
-                      <td>  {{ $row->category_tr }}  </td>
-                      <td> {{ $row->subcategory_en }} </td>
-                      <td>  {{ $row->subcategory_tr }}   </td>
-                      <td>
-                        <a href="{{ route('edit.subcategory',$row->id) }}" class="btn btn-info">Edit</a>
-                        <a href="{{ route('delete.subcategory',$row->id) }}" onclick="return confirm('Are you sure to delete')" class="btn btn-danger">Delete</a>
-                      </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-              </table>
-              {{$subcategory->links('pagination-links')}}
-            </div>
+                @endforeach
+              </tbody>
+            </table>
+            {{ $post->links('pagination-links') }}
           </div>
         </div>
       </div>
     </div>
-  </div>
-@endsection
+  @endsection

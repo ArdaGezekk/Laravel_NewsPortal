@@ -104,18 +104,28 @@
       </a>
       <div class="collapse" id="ui-post">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="">Wiew Posts</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('all.post') }}">Wiew Posts</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{ route('create.post') }}">Add Post</a></li>
         </ul>
       </div>
     </li>
     <li class="nav-item menu-items">
-      <a class="nav-link" href="pages/forms/basic_elements.html">
+      <a class="nav-link" data-toggle="collapse" href="#ui-settings" aria-expanded="false" aria-controls="ui-settings">
         <span class="menu-icon">
-          <i class="mdi mdi-playlist-play"></i>
+          <i class="mdi mdi-settings"></i>
         </span>
-        <span class="menu-title">Form Elements</span>
+        <span class="menu-title">Settings</span>
+        <i class="menu-arrow"></i>
       </a>
+      <div class="collapse" id="ui-settings">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{{ route('social.setting') }}">Social Media</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('seo.setting') }}">Seo Settings</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('prayer.setting') }}">Prayer Setting</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('livetv.setting') }}">Live TV Settings</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ route('notice.setting') }}">Notice Settings</a></li>
+        </ul>
+      </div>
     </li>
     <li class="nav-item menu-items">
       <a class="nav-link" href="pages/tables/basic-table.html">
