@@ -7,6 +7,8 @@ use App\Http\Controllers\Backend\DistrictController;
 use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\GalleryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,3 +87,11 @@ Route::get('/notice/deactive/{id}', [SettingController::class, 'DeActiveNoticeSe
 Route::get('/website/setting', [SettingController::class, 'WebsiteSetting'])->name('all.website');
 Route::get('/add/website', [SettingController::class, 'AddWebsiteSetting'])->name('add.website');
 Route::post('/store/website', [SettingController::class, 'StoreWebsite'])->name('store.website');
+// Photo Gallery Routes
+Route::get('/photo/gallery', [GalleryController::class, 'PhotoGallery'])->name('photo.gallery');
+Route::get('/add/photo', [GalleryController::class, 'AddPhoto'])->name('add.photo');
+Route::post('/store/photo', [GalleryController::class, 'StorePhoto'])->name('store.photo');
+// Video Gallery Routes
+Route::get('/video/gallery', [GalleryController::class, 'VideoGallery'])->name('video.gallery');
+Route::get('/add/video', [GalleryController::class, 'AddVideo'])->name('add.video');
+Route::post('/store/video', [GalleryController::class, 'StoreVideo'])->name('store.video');
