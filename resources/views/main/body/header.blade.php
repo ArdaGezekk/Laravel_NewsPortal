@@ -159,7 +159,7 @@ $category = DB::table('categories')->orderBy('id','ASC')->get();
                   @endif
                 </div>
                 <div class="col-md-10 col-sm-9 scroll_02">
-                  <marquee>
+                  <marquee scrollamount="10">
                     @foreach($headline as $row)
                       @if(session()->get('lang')== 'english')
                       &nbsp;*&nbsp;{{ $row->title_en }}
@@ -184,7 +184,7 @@ $category = DB::table('categories')->orderBy('id','ASC')->get();
                     @endif
                   </div>
                   <div class="col-md-10 col-sm-9 scroll_02" style="background-color: red;">
-                    <marquee>
+                    <marquee scrollamount="7">
                       {{ $notice->notice }}
                     </marquee>
                   </div>

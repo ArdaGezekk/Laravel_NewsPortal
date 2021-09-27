@@ -89,3 +89,5 @@ Route::post('/store/video', [GalleryController::class, 'StoreVideo'])->name('sto
 //Multi Language
 Route::get('/lang/turkish', [ExtraController::class, 'Turkish'])->name('language.turkish');
 Route::get('/lang/english', [ExtraController::class, 'English'])->name('language.english');
+// Single Post page
+Route::get('/view/post/{id}', [ExtraController::class, 'SinglePost']);
