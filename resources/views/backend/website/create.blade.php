@@ -25,29 +25,24 @@
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Notice Setting </h4>
-          <div class="template-demo">
-            @if($notice->status == 1)
-              <a href="{{ route('deactive.notice',$notice->id)  }}"><button type="button" class="btn btn-danger btn-fw">DeActive</button></a>
-            @else
-              <a href="{{ route('active.notice',$notice->id)  }}"><button type="button" class="btn btn-primary btn-fw">Active</button></a>
-            @endif
-          </div>
-          @if($notice->status == 1)
-            <small class="text-success">Now Notice Are Active </small>
-          @else
-            <small class="text-danger">Now Notice Are DeActive </small>
-          @endif
-          <br><br>
-          <form class="forms-sample" method="POST" action="{{ route('update.notice',$notice->id) }}">
+          <h4 class="card-title">Add Website Link</h4>
+          <form class="forms-sample" method="POST" action="{{ route('store.website') }}">
             @csrf
             <div class="form-group">
-              <label for="exampleTextarea1">Notice Text </label>
-              <input type="text" class="form-control" name="notice" value="{{ $notice->notice }}" >
-
-              </input>
+              <label for="exampleInputUsername1">Website Name</label>
+              <input type="text" class="form-control" name="website_name"  >
+              @error('website_name')
+                <span class="text-danger">{{ $message }}</span>
+              @enderror
             </div>
-            <button type="submit" class="btn btn-primary mr-2">Update</button>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Website Link</label>
+              <input type="text" class="form-control" name="website_link"   >
+              @error('website_link')
+                <span class="text-danger">{{ $message }}</span>
+              @enderror
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
           </form>
         </div>
       </div>

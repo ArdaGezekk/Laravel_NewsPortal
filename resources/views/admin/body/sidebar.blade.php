@@ -128,6 +128,22 @@
       </div>
     </li>
     <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#website" aria-expanded="false" aria-controls="website">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Website</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="website">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('add.website') }}">Add Website Link</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('all.website') }}">All Website Link </a></li>
+
+              </ul>
+            </div>
+          </li>
+    <li class="nav-item menu-items">
       <a class="nav-link" data-toggle="collapse" href="#ui-gallary" aria-expanded="false" aria-controls="ui-gallary">
         <span class="menu-icon">
           <i class="mdi mdi-image-broken-variant"></i>

@@ -43,7 +43,7 @@
             @csrf
             <div class="form-group">
               <label for="exampleTextarea1">Embed Code For live </label>
-              <textarea class="form-control" name="embed_code" id="summernote">
+              <textarea class="form-control" name="embed_code">
                 {{ $livetv->embed_code }}
               </textarea>
             </div>

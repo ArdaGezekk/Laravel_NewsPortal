@@ -8,19 +8,9 @@ use App\Http\Controllers\Backend\SubDistrictController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Frontend\ExtraController;
 Route::get('/', function () {
-  return view('welcome');
+  return view('main.home');
 });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
   return view('admin.index');
@@ -95,3 +85,7 @@ Route::post('/store/photo', [GalleryController::class, 'StorePhoto'])->name('sto
 Route::get('/video/gallery', [GalleryController::class, 'VideoGallery'])->name('video.gallery');
 Route::get('/add/video', [GalleryController::class, 'AddVideo'])->name('add.video');
 Route::post('/store/video', [GalleryController::class, 'StoreVideo'])->name('store.video');
+// FRONT
+//Multi Language
+Route::get('/lang/turkish', [ExtraController::class, 'Turkish'])->name('language.turkish');
+Route::get('/lang/english', [ExtraController::class, 'English'])->name('language.english');
