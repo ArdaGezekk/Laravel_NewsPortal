@@ -1,4 +1,4 @@
-This is Laravel News Portal Project
+Multi Language Full Dynamic News Portal Laravel Project
 
 ![alt text](https://github.com/ArdaGezekk/Laravel_NewsPortal/blob/main/Screenshot_4.jpg)
 ![alt text](https://github.com/ArdaGezekk/Laravel_NewsPortal/blob/main/category.jpg)
